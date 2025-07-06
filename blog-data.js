@@ -5,7 +5,7 @@ const blogData = {
     // Profile information
     profile: {
         name: "Raman",
-        username: "ramanodes",
+        username: "ramancodes",
         bio: "Coffee Enthusiast • Digital Nomad",
         joinDate: "January 2022",
         website: "rmndubey25.github.io",
