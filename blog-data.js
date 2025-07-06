@@ -4,14 +4,14 @@
 const blogData = {
     // Profile information
     profile: {
-        name: "Alex Rivera",
-        username: "alexcodes",
-        bio: "Full-Stack Developer • Coffee Enthusiast • Digital Nomad • Building the future one line at a time",
-        joinDate: "March 2023",
-        website: "alexrivera.dev",
-        followingCount: 234,
-        followersCount: 892,
-        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+        name: "Raman",
+        username: "ramanodes",
+        bio: "Coffee Enthusiast • Digital Nomad",
+        joinDate: "January 2022",
+        website: "rmndubey25.github.io",
+        followingCount: ∞,
+        followersCount: ∞,
+        avatar: "https://private-user-images.githubusercontent.com/174093354/462893206-b5b12a23-df82-4841-8bb8-61b1c79327b9.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTE3OTg1NTMsIm5iZiI6MTc1MTc5ODI1MywicGF0aCI6Ii8xNzQwOTMzNTQvNDYyODkzMjA2LWI1YjEyYTIzLWRmODItNDg0MS04YmI4LTYxYjFjNzkzMjdiOS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNzA2JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDcwNlQxMDM3MzNaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0yZDFkYjI1NjdlNzljNWUyZGUxNmMzOGEzMjc2ZTQxMDViNWIwNGM2OTMwNWVkMGQ0ZmNkZjY4YmY1MmQ3NjY2JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.3b7jX857YY06hG4TuRH88vZxLhV4N9mdGsAmezrVo0U",
         coverPhoto: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=600&h=200&fit=crop"
     },
 
