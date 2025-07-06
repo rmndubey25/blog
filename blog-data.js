@@ -6,8 +6,8 @@ const blogData = {
         bio: "Coffee Enthusiast • Digital Nomad",
         joinDate: "January 2022",
         website: "https://rmndubey25.github.io",
-        followingCount: -1/12,
-        followersCount: -1/12,
+        followingCount: "∞",
+        followersCount: "∞",
         avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
         coverPhoto: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=600&h=200&fit=crop"
     },
