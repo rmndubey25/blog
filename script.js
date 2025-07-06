@@ -303,16 +303,12 @@ I'm passionate about web development, design, and creating meaningful digital ex
                 showLessBtn.className = 'show-less';
                 showLessBtn.style.cssText = 'color: #1d9bf0; font-size: 15px; margin-top: 8px; cursor: pointer;';
                 showLessBtn.textContent = 'Show less';
-                showLessBtn.addEventListener('click', () => {
-                fullContent.style.display = 'none';
-                const readMoreBtn = postElement.querySelector('.read-more');
-                if (readMoreBtn) readMoreBtn.style.display = 'block';
-                });
-
+                showLessBtn.onclick = () => this.collapsePost(postElement);
                 
                 fullContent.appendChild(showLessBtn);
             }
             
+
             // Re-initialize icons for the full content
             setTimeout(() => {
                 if (typeof feather !== 'undefined') {
