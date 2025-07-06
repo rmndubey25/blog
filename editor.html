@@ -361,6 +361,8 @@
             if (confirm('Are you sure you want to delete this post?')) {
                 posts.splice(index, 1);
                 displayPosts();
+                generateCode(); // ✅ This will update the code block
+                alert('❌ Post deleted. Now copy and paste the updated code into your blog-data.js to apply the change.');
             }
         }
 
