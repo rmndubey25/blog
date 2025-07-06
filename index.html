@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Rivera - Personal Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="back-arrow">
+                    <i data-feather="arrow-left"></i>
+                </div>
+                <div class="header-info">
+                    <h1 class="profile-name" id="header-name">Alex Rivera</h1>
+                    <p class="tweet-count"><span id="post-count">0</span> posts</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <!-- Cover Photo -->
+            <div class="cover-photo" id="cover-photo"></div>
+            
+            <!-- Profile Info -->
+            <div class="profile-info">
+                <div class="avatar-container">
+                    <div class="avatar" id="avatar">
+                        <i data-feather="user"></i>
+                    </div>
+                </div>
+                
+                <div class="profile-details">
+                    <h2 class="display-name" id="display-name">Alex Rivera</h2>
+                    <p class="username" id="username">@alexcodes</p>
+                    <p class="bio" id="bio">Full-Stack Developer • Coffee Enthusiast • Digital Nomad • Building the future one line at a time</p>
+                    
+                    <div class="profile-meta">
+                        <div class="meta-item">
+                            <i data-feather="calendar"></i>
+                            <span id="join-date">Joined March 2023</span>
+                        </div>
+                        <div class="meta-item">
+                            <i data-feather="link"></i>
+                            <span id="website">alexrivera.dev</span>
+                        </div>
+                    </div>
+                    
+                    <div class="follow-stats">
+                        <span class="stat"><strong id="following-count">234</strong> Following</span>
+                        <span class="stat"><strong id="followers-count">892</strong> Followers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <nav class="nav-tabs">
+            <div class="tab active" data-tab="posts">
+                <span>Posts</span>
+            </div>
+            <div class="tab" data-tab="about">
+                <span>About</span>
+            </div>
+            <div class="tab" data-tab="media">
+                <span>Media</span>
+            </div>
+        </nav>
+
+        <!-- Content Area -->
+        <main class="content">
+            <!-- Posts Timeline -->
+            <div class="timeline" id="timeline">
+                <!-- Blog posts will be dynamically loaded here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+    <script src="blog-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

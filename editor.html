@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Content Editor</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1d9bf0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #e1e8ed;
+            border-radius: 8px;
+        }
+        .section h2 {
+            color: #333;
+            margin-top: 0;
+            border-bottom: 2px solid #1d9bf0;
+            padding-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #555;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+            font-family: inherit;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .button {
+            background-color: #1d9bf0;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        .button:hover {
+            background-color: #1a8cd8;
+        }
+        .preview {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            white-space: pre-wrap;
+            border-left: 4px solid #1d9bf0;
+        }
+        .instructions {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2196f3;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Blog Content Editor</h1>
+        
+        <div class="instructions">
+            <h3>📝 How to Use This Editor</h3>
+            <p><strong>Step 1:</strong> Edit your profile information and blog posts below</p>
+            <p><strong>Step 2:</strong> Click "Add Post & Copy Code" or "Update Profile & Copy Code"</p>
+            <p><strong>Step 3:</strong> Paste the copied code into your blog-data.js file</p>
+            <p><strong>Step 4:</strong> Save and upload to GitHub to see changes</p>
+        </div>
+        
+        <div style="background: #e8f4f8; border: 1px solid #1d9bf0; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+            <h3 style="margin: 0 0 10px 0; color: #1d9bf0;">💡 Image Hosting Tip</h3>
+            <p style="margin: 0; font-size: 14px;">For images to show on your live blog, use these free hosting options:</p>
+            <ul style="margin: 10px 0 0 20px; font-size: 14px;">
+                <li><strong>Imgur:</strong> Go to <a href="https://imgur.com" target="_blank" style="color: #1d9bf0;">imgur.com</a> → Upload → Copy direct link</li>
+                <li><strong>GitHub:</strong> Create an issue in your repo → Drag image → Copy the generated URL</li>
+                <li><strong>Unsplash:</strong> Use <a href="https://unsplash.com" target="_blank" style="color: #1d9bf0;">unsplash.com</a> for free stock photos</li>
+            </ul>
+        </div>
+
+        <!-- Profile Section -->
+        <div class="section">
+            <h2>👤 Profile Information</h2>
+            
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" value="Alex Rivera" placeholder="Your full name">
+            </div>
+            
+            <div class="form-group">
+                <label for="username">Username (without @):</label>
+                <input type="text" id="username" value="alexcodes" placeholder="yourusername">
+            </div>
+            
+            <div class="form-group">
+                <label for="bio">Bio/Description:</label>
+                <textarea id="bio" placeholder="Write a short bio about yourself">Full-Stack Developer • Coffee Enthusiast • Digital Nomad • Building the future one line at a time</textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="joinDate">Join Date:</label>
+                <input type="text" id="joinDate" value="March 2023" placeholder="January 2024">
+            </div>
+            
+            <div class="form-group">
+                <label for="website">Website:</label>
+                <input type="text" id="website" value="alexrivera.dev" placeholder="yourwebsite.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="followingCount">Following Count:</label>
+                <input type="number" id="followingCount" value="234" placeholder="42">
+            </div>
+            
+            <div class="form-group">
+                <label for="followersCount">Followers Count:</label>
+                <input type="number" id="followersCount" value="892" placeholder="128">
+            </div>
+            
+            <div class="form-group">
+                <label for="avatar">Avatar Image URL (optional):</label>
+                <input type="url" id="avatar" value="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" placeholder="https://example.com/your-avatar.jpg">
+            </div>
+            
+            <div class="form-group">
+                <label for="coverPhoto">Cover Photo URL (optional):</label>
+                <input type="url" id="coverPhoto" value="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=600&h=200&fit=crop" placeholder="https://example.com/your-cover.jpg">
+            </div>
+            
+            <button class="button" onclick="updateProfile()" style="background-color: #ff9800;">Update Profile & Copy Code</button>
+        </div>
+        
+        <!-- Quick Copy Section -->
+        <div class="section">
+            <h2>📋 Quick Copy Code</h2>
+            <p>Copy the complete blog-data.js code anytime (includes all your current posts and profile):</p>
+            <button class="button" onclick="copyBlogDataToClipboard()" style="background-color: #2196f3; font-size: 16px; padding: 12px 24px;">Copy All Code to Clipboard</button>
+        </div>
+
+        <!-- New Post Section -->
+        <div class="section">
+            <h2>✍️ Add New Blog Post</h2>
+            
+            <div class="form-group">
+                <label for="postContent">Post Content:</label>
+                <textarea id="postContent" placeholder="Write your blog post here... You can use emojis, hashtags, and line breaks!"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="postImages">Image URLs (optional - one per line for multiple images):</label>
+                <textarea id="postImages" placeholder="https://example.com/image1.jpg&#10;https://example.com/image2.jpg&#10;https://example.com/image3.jpg" rows="3"></textarea>
+                <small style="color: #666; font-size: 12px;">Enter multiple image URLs, one per line</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="postImageFile">OR Upload Image from Device:</label>
+                <input type="file" id="postImageFile" accept="image/*" style="margin-bottom: 10px;">
+                <div id="imagePreview" style="display: none; margin-top: 10px;">
+                    <img id="previewImg" style="max-width: 200px; border-radius: 8px; border: 1px solid #ccc;">
+                    <div style="background: #fffbf0; border: 1px solid #f0ad4e; padding: 10px; border-radius: 5px; margin-top: 10px; font-size: 13px;">
+                        <strong>⚠️ Important:</strong> Device uploads only work locally. For your blog to show images:
+                        <ol style="margin: 5px 0 0 20px; padding: 0;">
+                            <li>Upload your image to <a href="https://imgur.com" target="_blank" style="color: #1d9bf0;">Imgur</a> or <a href="https://github.com" target="_blank" style="color: #1d9bf0;">GitHub</a></li>
+                            <li>Copy the image URL</li>
+                            <li>Paste it in the "Image URL" field above</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="postLikes">Likes Count:</label>
+                <input type="number" id="postLikes" value="0" min="0">
+            </div>
+            
+            <div class="form-group">
+                <label for="postReposts">Reposts Count:</label>
+                <input type="number" id="postReposts" value="0" min="0">
+            </div>
+            
+            <div class="form-group">
+                <label for="postReplies">Replies Count:</label>
+                <input type="number" id="postReplies" value="0" min="0">
+            </div>
+            
+            <button class="button" onclick="addPost()">Add This Post</button>
+            <button class="button" onclick="addPostAndUpdate()" style="background-color: #4caf50;">Add Post & Copy Code</button>
+            <button class="button" onclick="clearPostForm()" style="background-color: #666;">Clear Form</button>
+        </div>
+
+        <!-- Posts Management -->
+        <div class="section">
+            <h2>📋 Current Posts</h2>
+            <div id="postsList"></div>
+        </div>
+
+        <!-- Generate Code -->
+        <div class="section">
+            <h2>🔧 Generate Code</h2>
+            <div class="warning">
+                <strong>IMPORTANT WORKFLOW:</strong> 
+                <ol style="margin: 10px 0; padding-left: 20px;">
+                    <li>Add your posts using the form above</li>
+                    <li>Click "Generate Code" below</li>
+                    <li>Copy the entire generated code</li>
+                    <li>Open your <code>blog-data.js</code> file</li>
+                    <li>Replace ALL content in blog-data.js with the copied code</li>
+                    <li>Save the file and refresh your main blog</li>
+                </ol>
+                <p><strong>Your new posts will NOT appear until you complete ALL steps above!</strong></p>
+            </div>
+            <button class="button" onclick="generateCode()">Generate blog-data.js Code</button>
+            
+            <div id="generatedCode" style="display: none;">
+                <h3>✅ Generated Code (Step 3):</h3>
+                <div style="background: #e8f5e8; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid #4caf50;">
+                    <strong>NEXT STEPS:</strong>
+                    <ol style="margin: 5px 0; padding-left: 20px;">
+                        <li>Click "Copy to Clipboard" below</li>
+                        <li>Open your <code>blog-data.js</code> file in your code editor</li>
+                        <li>Select ALL content and DELETE it</li>
+                        <li>Paste the copied code</li>
+                        <li>Save the file</li>
+                        <li>Refresh your main blog to see the new post!</li>
+                    </ol>
+                </div>
+                <textarea id="codeOutput" readonly style="font-family: monospace; font-size: 12px; min-height: 300px; margin-bottom: 10px;"></textarea>
+                <button class="button" onclick="updateProfile()" style="background-color: #ff9800; margin-right: 10px;">Update Profile Instantly</button>
+                <button class="button" onclick="copyCode()" style="background-color: #4caf50; font-size: 16px; padding: 15px 30px;">📋 Copy to Clipboard</button>
+                <div id="copySuccess" style="display: none; color: #4caf50; font-weight: bold; margin-top: 10px;">✅ Code copied! Now paste it into your blog-data.js file.</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="blog-data.js"></script>
+    <script>
+        // Initialize with current data from blog-data.js
+        let posts = [];
+        let currentProfile = {};
+
+        // Load data from blog-data.js
+        function loadCurrentData() {
+            if (typeof blogData !== 'undefined') {
+                // Load posts
+                posts = [...blogData.posts];
+                
+                // Load profile data into form fields
+                currentProfile = blogData.profile;
+                document.getElementById('name').value = currentProfile.name || '';
+                document.getElementById('username').value = currentProfile.username || '';
+                document.getElementById('bio').value = currentProfile.bio || '';
+                document.getElementById('joinDate').value = currentProfile.joinDate || '';
+                document.getElementById('website').value = currentProfile.website || '';
+                document.getElementById('followingCount').value = currentProfile.followingCount || 0;
+                document.getElementById('followersCount').value = currentProfile.followersCount || 0;
+                document.getElementById('avatar').value = currentProfile.avatar || '';
+                document.getElementById('coverPhoto').value = currentProfile.coverPhoto || '';
+            } else {
+                console.warn('blogData not found - using default data');
+                posts = [];
+            }
+        }
+
+        function displayPosts() {
+            const postsList = document.getElementById('postsList');
+            if (posts.length === 0) {
+                postsList.innerHTML = '<p style="color: #666; font-style: italic;">No posts yet. Add your first post above!</p>';
+                return;
+            }
+
+            const postsHTML = posts.map((post, index) => `
+                <div style="border: 1px solid #e1e8ed; padding: 15px; margin-bottom: 15px; border-radius: 8px; background-color: #fafafa;">
+                    <div style="display: flex; justify-content: between; align-items: start; margin-bottom: 10px;">
+                        <strong>Post ${index + 1}</strong>
+                        <button onclick="deletePost(${index})" style="background: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; margin-left: auto;">Delete</button>
+                    </div>
+                    <div style="background: white; padding: 10px; border-radius: 4px; white-space: pre-wrap; margin-bottom: 10px;">${post.content.substring(0, 150)}${post.content.length > 150 ? '...' : ''}</div>
+                    ${post.image ? `<div style="color: #666; font-size: 12px;">📷 Image: ${post.image}</div>` : ''}
+                    <div style="color: #666; font-size: 12px; margin-top: 5px;">
+                        ❤️ ${post.stats.likes} | 🔄 ${post.stats.reposts} | 💬 ${post.stats.replies}
+                    </div>
+                </div>
+            `).join('');
+            
+            postsList.innerHTML = postsHTML;
+        }
+
+        function addPost() {
+            const content = document.getElementById('postContent').value.trim();
+            if (!content) {
+                alert('Please enter post content!');
+                return;
+            }
+
+            const newPost = {
+                id: `post-${Date.now()}`,
+                content: content,
+                date: new Date().toISOString(),
+                image: document.getElementById('postImage').value.trim() || null,
+                stats: { likes: 0, reposts: 0, replies: 0 }
+            };
+
+            // Add to the beginning of posts array
+            posts.unshift(newPost);
+            
+            // Also add to the global blogData if it exists
+            if (typeof blogData !== 'undefined') {
+                blogData.posts.unshift(newPost);
+            }
+            
+            displayPosts();
+            clearPostForm();
+            
+            // Auto-generate and show the updated code
+            generateCode();
+            
+            alert('Post added successfully! The code has been generated below. Copy it to your blog-data.js file to see it on your main blog.');
+        }
+
+        function deletePost(index) {
+            if (confirm('Are you sure you want to delete this post?')) {
+                posts.splice(index, 1);
+                displayPosts();
+            }
+        }
+
+        function clearPostForm() {
+            document.getElementById('postContent').value = '';
+            document.getElementById('postImages').value = '';
+            document.getElementById('postImageFile').value = '';
+            document.getElementById('imagePreview').style.display = 'none';
+        }
+
+        function addPostAndUpdate() {
+            const content = document.getElementById('postContent').value.trim();
+            if (!content) {
+                alert('Please enter post content!');
+                return;
+            }
+
+            // Get image URLs (support multiple images)
+            const imageUrls = document.getElementById('postImages').value.trim()
+                .split('\n')
+                .map(url => url.trim())
+                .filter(url => url.length > 0);
+            
+            const newPost = {
+                id: `post-${Date.now()}`,
+                content: content,
+                date: new Date().toISOString(),
+                images: imageUrls.length > 0 ? imageUrls : null,
+                stats: { likes: 0, reposts: 0, replies: 0 }
+            };
+
+            // Add to posts array
+            posts.unshift(newPost);
+            displayPosts();
+            clearPostForm();
+            
+            // Auto-generate and copy to clipboard
+            copyBlogDataToClipboard();
+            
+            alert('✅ Post added! The updated blog-data.js code has been copied to your clipboard.\n\nNow:\n1. Open your blog-data.js file\n2. Select all content (Ctrl+A) and paste (Ctrl+V)\n3. Save and upload to GitHub\n\nYour new post will appear immediately on your blog!');
+        }
+
+        function updateProfile() {
+            copyBlogDataToClipboard();
+            alert('✅ Profile updated! The updated blog-data.js code has been copied to your clipboard.\n\nNow:\n1. Open your blog-data.js file\n2. Select all content (Ctrl+A) and paste (Ctrl+V)\n3. Save and upload to GitHub\n\nYour profile changes will appear immediately!');
+        }
+
+        async function copyBlogDataToClipboard() {
+            const profile = {
+                name: document.getElementById('name').value.trim(),
+                username: document.getElementById('username').value.trim(),
+                bio: document.getElementById('bio').value.trim(),
+                joinDate: document.getElementById('joinDate').value.trim(),
+                website: document.getElementById('website').value.trim(),
+                followingCount: parseInt(document.getElementById('followingCount').value) || 0,
+                followersCount: parseInt(document.getElementById('followersCount').value) || 0,
+                avatar: document.getElementById('avatar').value.trim() || null,
+                coverPhoto: document.getElementById('coverPhoto').value.trim() || null
+            };
+
+            const code = `// Blog data configuration
+const blogData = {
+    profile: {
+        name: "${profile.name}",
+        username: "${profile.username}",
+        bio: "${profile.bio}",
+        joinDate: "${profile.joinDate}",
+        website: "${profile.website}",
+        followingCount: ${profile.followingCount},
+        followersCount: ${profile.followersCount},
+        avatar: ${profile.avatar ? `"${profile.avatar}"` : 'null'},
+        coverPhoto: ${profile.coverPhoto ? `"${profile.coverPhoto}"` : 'null'}
+    },
+    posts: [
+${posts.map(post => `        {
+            id: "${post.id}",
+            content: \`${post.content}\`,
+            date: "${post.date}",
+            images: ${post.images ? `[${post.images.map(img => `"${img}"`).join(', ')}]` : 'null'},
+            stats: { likes: 0, reposts: 0, replies: 0 }
+        }`).join(',\n')}
+    ]
+};
+
+function addNewPost(content, image = null) {
+    const newPost = {
+        id: \`post-\${Date.now()}\`,
+        content: content,
+        date: new Date().toISOString(),
+        image: image,
+        stats: { likes: 0, reposts: 0, replies: 0 }
+    };
+    blogData.posts.unshift(newPost);
+    return newPost;
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = blogData;
+}`;
+
+            try {
+                await navigator.clipboard.writeText(code);
+                showCopySuccess();
+            } catch (err) {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = code;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showCopySuccess();
+            }
+        }
+
+        function showCopySuccess() {
+            // Create a temporary success message
+            const successDiv = document.createElement('div');
+            successDiv.innerHTML = '✅ Code copied to clipboard!';
+            successDiv.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: #4caf50;
+                color: white;
+                padding: 10px 20px;
+                border-radius: 5px;
+                font-weight: bold;
+                z-index: 1000;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            `;
+            document.body.appendChild(successDiv);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                if (successDiv.parentNode) {
+                    document.body.removeChild(successDiv);
+                }
+            }, 3000);
+        }
+
+        // Handle image file upload preview
+        document.addEventListener('DOMContentLoaded', function() {
+            const fileInput = document.getElementById('postImageFile');
+            const imagePreview = document.getElementById('imagePreview');
+            const previewImg = document.getElementById('previewImg');
+
+            if (fileInput) {
+                fileInput.addEventListener('change', function(e) {
+                    const file = e.target.files[0];
+                    if (file && file.type.startsWith('image/')) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            previewImg.src = e.target.result;
+                            imagePreview.style.display = 'block';
+                        };
+                        reader.readAsDataURL(file);
+                    } else {
+                        imagePreview.style.display = 'none';
+                    }
+                });
+            }
+        });
+
+        function generateCode() {
+            const profile = {
+                name: document.getElementById('name').value.trim(),
+                username: document.getElementById('username').value.trim(),
+                bio: document.getElementById('bio').value.trim(),
+                joinDate: document.getElementById('joinDate').value.trim(),
+                website: document.getElementById('website').value.trim(),
+                followingCount: parseInt(document.getElementById('followingCount').value) || 0,
+                followersCount: parseInt(document.getElementById('followersCount').value) || 0,
+                avatar: document.getElementById('avatar').value.trim() || null,
+                coverPhoto: document.getElementById('coverPhoto').value.trim() || null
+            };
+
+            const code = `// Blog data configuration
+// Edit this file to update your profile information and blog posts
+
+const blogData = {
+    // Profile information
+    profile: {
+        name: "${profile.name}",
+        username: "${profile.username}",
+        bio: "${profile.bio}",
+        joinDate: "${profile.joinDate}",
+        website: "${profile.website}",
+        followingCount: ${profile.followingCount},
+        followersCount: ${profile.followersCount},
+        avatar: ${profile.avatar ? `"${profile.avatar}"` : 'null'},
+        coverPhoto: ${profile.coverPhoto ? `"${profile.coverPhoto}"` : 'null'}
+    },
+
+    // Blog posts array
+    // Add new posts at the beginning of this array for chronological order
+    posts: [
+${posts.map(post => `        {
+            id: "${post.id}",
+            content: \`${post.content}\`,
+            date: "${post.date}",
+            image: ${post.image ? `"${post.image}"` : 'null'},
+            stats: {
+                likes: ${post.stats.likes},
+                reposts: ${post.stats.reposts},
+                replies: ${post.stats.replies}
+            }
+        }`).join(',\n')}
+    ]
+};
+
+// Helper function to add a new post (for easy content management)
+function addNewPost(content, image = null) {
+    const newPost = {
+        id: \`post-\${Date.now()}\`,
+        content: content,
+        date: new Date().toISOString(),
+        image: image,
+        stats: {
+            likes: 0,
+            reposts: 0,
+            replies: 0
+        }
+    };
+    
+    // Add to the beginning of the posts array
+    blogData.posts.unshift(newPost);
+    
+    return newPost;
+}
+
+// Example usage (uncomment to add a new post):
+// addNewPost("This is a new blog post!", "https://example.com/image.jpg");
+
+// Export for use in other files (if using modules)
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = blogData;
+}`;
+
+            document.getElementById('codeOutput').value = code;
+            document.getElementById('generatedCode').style.display = 'block';
+        }
+
+        function copyCode() {
+            const codeOutput = document.getElementById('codeOutput');
+            codeOutput.select();
+            document.execCommand('copy');
+            
+            // Show success message
+            const successMsg = document.getElementById('copySuccess');
+            successMsg.style.display = 'block';
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMsg.style.display = 'none';
+            }, 5000);
+        }
+
+        // Initialize the page
+        window.addEventListener('load', function() {
+            loadCurrentData();
+            displayPosts();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+# Editor files - keep these private, don't deploy to GitHub Pages
+editor.html
+
+# Optional: Also ignore README if you don't want instructions public
+# README.md
+
+# System files
+.DS_Store
+Thumbs.db
