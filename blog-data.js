@@ -110,7 +110,7 @@ But what if you're just consciousness, watching this drama unfold?`,
         },
         {
             id: "post-1751798849489",
-            content: `<h1>I Wasn't Born to Fit In — I Was Built to Take Over.</h1>
+            content: `I Wasn't Born to Fit In — I Was Built to Take Over.
 "The world doesn’t need more thinkers. It needs rulers who think."
 — Raman Dubey
 
