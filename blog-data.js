@@ -1,12 +1,3 @@
-// Blog data configuration
-const blogData = {
-    profile: {
-        name: "Raman",
-        username: "ramancodes",
-        bio: "Coffee Enthusiast • Digital Nomad",
-        joinDate: "January // Blog data configuration
-// Edit this file to update your profile information and blog posts
-
 const blogData = {
     // Profile information
     profile: {
