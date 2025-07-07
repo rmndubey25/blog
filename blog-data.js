@@ -34,7 +34,8 @@ But what if you're just consciousness, watching this drama unfold?`,
         },
         {
             id: "post-1751798849489",
-            content: `<h1>I Wasn't Born to Fit In — I Was Built to Take Over.</h1>
+            content: `<h1>Enter the Mind of a Man Who Refused to Obey</h1>
+            
 <p><strong>"The world doesn’t need more thinkers. It needs rulers who think."</strong><br>— Raman Dubey</p>
 
 <p>There’s a kind of silence right before a storm. The internet’s too quiet. People post, but they don’t speak. They shout, but they say nothing. In a world where everyone is trying to go viral, I’m not trying to be seen — I’m here to be remembered.</p>
