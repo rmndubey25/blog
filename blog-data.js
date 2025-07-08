@@ -14,7 +14,9 @@ const blogData = {
     posts: [
         {
             id: "post-1751971494569",
-            content: `<p>I woke up facing the label of a cylindrical bottle—colored medicine meant to turn my white garden back to black. Yes, I’m talking about hair. 🌧️</p>
+            content: `  <h2>I Walked Through Rain, Religion, and Raw Folders — Unbothered 🌧️</h2>
+            
+            <p>I woke up facing the label of a cylindrical bottle—colored medicine meant to turn my white garden back to black. Yes, I’m talking about hair.</p>
 
 <p>It was raining. Still, I got up, did the usual morning rituals, and worshipped The God. I didn’t want to get wet. But of course, Indian moms > Rain. So I went. I worshipped. I came back wet and wondering how we still do these things.</p>
 
