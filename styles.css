@@ -1,4 +1,3 @@
-/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -21,7 +20,6 @@ body {
     border-right: 1px solid #2f3336;
 }
 
-/* Header */
 .header {
     position: sticky;
     top: 0;
@@ -57,7 +55,6 @@ body {
     margin-top: 2px;
 }
 
-/* Profile Section */
 .profile-section {
     position: relative;
 }
@@ -152,7 +149,6 @@ body {
     font-weight: 700;
 }
 
-/* Navigation Tabs */
 .nav-tabs {
     display: flex;
     border-bottom: 1px solid #2f3336;
@@ -196,12 +192,10 @@ body {
     border-radius: 2px;
 }
 
-/* Timeline */
 .timeline {
     min-height: 400px;
 }
 
-/* Post Styles */
 .post {
     padding: 16px;
     border-bottom: 1px solid #2f3336;
@@ -283,17 +277,14 @@ body {
     max-width: 600px;
 }
 
-/* Single image */
 .post-images:has(img:nth-child(1):nth-last-child(1)) {
     grid-template-columns: 1fr;
 }
 
-/* Two images */
 .post-images:has(img:nth-child(2)) {
     grid-template-columns: 1fr 1fr;
 }
 
-/* Three images */
 .post-images:has(img:nth-child(3)) {
     grid-template-columns: 1fr 1fr;
 }
@@ -302,7 +293,6 @@ body {
     grid-column: 1 / -1;
 }
 
-/* Four or more images */
 .post-images:has(img:nth-child(4)) {
     grid-template-columns: 1fr 1fr;
 }
@@ -353,7 +343,6 @@ body {
     height: 16px;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .container {
         border-left: none;
@@ -425,7 +414,6 @@ body {
     }
 }
 
-/* Loading State */
 .loading {
     text-align: center;
     padding: 40px 20px;
@@ -433,7 +421,6 @@ body {
     font-size: 15px;
 }
 
-/* Empty State */
 .empty-state {
     text-align: center;
     padding: 60px 20px;
