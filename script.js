@@ -1,4 +1,3 @@
-// Main application script
 class BlogApp {
     constructor() {
         this.posts = [];
@@ -12,18 +11,16 @@ class BlogApp {
         this.setupEventListeners();
         this.initializeFeatherIcons();
         this.updatePostCount();
-        this.renderContent(); // Automatically render posts on load
+        this.renderContent(); 
     }
 
     initializeFeatherIcons() {
-        // Initialize Feather icons
         if (typeof feather !== 'undefined') {
             feather.replace();
         }
     }
 
     setupEventListeners() {
-        // Tab switching
         const tabs = document.querySelectorAll('.tab');
         tabs.forEach(tab => {
             tab.addEventListener('click', (e) => {
@@ -31,7 +28,6 @@ class BlogApp {
             });
         });
 
-        // Post interactions
         document.addEventListener('click', (e) => {
             if (e.target.closest('.action-btn')) {
                 this.handlePostAction(e);
@@ -42,7 +38,6 @@ class BlogApp {
     }
 
     switchTab(tabName) {
-        // Update active tab
         document.querySelectorAll('.tab').forEach(tab => {
             tab.classList.remove('active');
         });
@@ -53,7 +48,6 @@ class BlogApp {
     }
 
     loadPosts() {
-        // Load posts from blog-data.js
         if (typeof blogData !== 'undefined' && blogData.posts) {
             this.posts = blogData.posts.sort((a, b) => new Date(b.date) - new Date(a.date));
         } else {
@@ -63,11 +57,9 @@ class BlogApp {
     }
 
     loadProfile() {
-        // Load profile information from blog-data.js
         if (typeof blogData !== 'undefined' && blogData.profile) {
             const profile = blogData.profile;
             
-            // Update profile elements
             document.getElementById('header-name').textContent = profile.name;
             document.getElementById('display-name').textContent = profile.name;
             document.getElementById('username').textContent = `@${profile.username}`;
@@ -77,20 +69,17 @@ class BlogApp {
             document.getElementById('following-count').textContent = profile.followingCount;
             document.getElementById('followers-count').textContent = profile.followersCount;
             
-            // Update cover photo if provided
             if (profile.coverPhoto) {
                 document.getElementById('cover-photo').style.backgroundImage = `url(${profile.coverPhoto})`;
                 document.getElementById('cover-photo').style.backgroundSize = 'cover';
                 document.getElementById('cover-photo').style.backgroundPosition = 'center';
             }
             
-            // Update avatar if provided
             if (profile.avatar) {
                 const avatarElement = document.getElementById('avatar');
                 avatarElement.innerHTML = `<img src="${profile.avatar}" alt="Profile Avatar" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">`;
             }
             
-            // Update page title
             document.title = `${profile.name} - Personal Blog`;
         }
     }
@@ -134,7 +123,6 @@ class BlogApp {
         const postsHTML = this.posts.map(post => this.createPostHTML(post)).join('');
         container.innerHTML = postsHTML;
 
-        // Re-initialize Feather icons for new content
         setTimeout(() => {
             if (typeof feather !== 'undefined') {
                 feather.replace();
@@ -167,7 +155,6 @@ I'm passionate about web development, design, and creating meaningful digital ex
             return;
         }
 
-        // Create a grid layout for media posts showing just the images
         const mediaHTML = mediaPosts.map(post => `
             <div class="media-item" style="margin-bottom: 8px;">
                 <img src="${post.image}" alt="Post media" style="width: 100%; border-radius: 16px; border: 1px solid #2f3336;">
@@ -179,24 +166,19 @@ I'm passionate about web development, design, and creating meaningful digital ex
 
     createPostHTML(post) {
         const formattedDate = this.formatDate(post.date);
-        const maxPreviewLength = 280; // Twitter-like character limit for preview
+        const maxPreviewLength = 280;
         
-        // Check if post needs truncation
         const isLongPost = post.content.length > maxPreviewLength;
         const displayContent = isLongPost ? post.content.substring(0, maxPreviewLength) + '...' : post.content;
         
-        // Get avatar HTML
         const avatarHTML = blogData.profile.avatar 
             ? `<img src="${blogData.profile.avatar}" alt="Profile Avatar" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">`
             : `<i data-feather="user"></i>`;
         
-        // Handle both single image (legacy) and multiple images
         const images = post.images || (post.image ? [post.image] : []);
         const imageHTML = images.length > 0 ? 
             (isLongPost ? 
-                // For long posts, show first image as preview
                 `<img src="${images[0]}" alt="Post image" class="post-image-preview" style="width: 100%; max-width: 300px; height: 200px; object-fit: cover; border-radius: 12px; border: 1px solid #2f3336; margin-bottom: 12px; cursor: pointer;">` :
-                // For short posts, show all images in a grid
                 `<div class="post-images">${images.map(img => `<img src="${img}" alt="Post image" class="post-image">`).join('')}</div>`) : '';
         
         return `
@@ -235,7 +217,6 @@ I'm passionate about web development, design, and creating meaningful digital ex
                     </div>
                 </div>
                 
-                <!-- Hidden full content -->
                 <div class="full-content" style="display: none;">
                     <div class="post-text">${post.content}</div>
                     ${images.length > 0 ? `<div class="post-images">${images.map(img => `<img src="${img}" alt="Post image" class="post-image">`).join('')}</div>` : ''}
@@ -254,7 +235,6 @@ I'm passionate about web development, design, and creating meaningful digital ex
         if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)}h`;
         if (diffInSeconds < 604800) return `${Math.floor(diffInSeconds / 86400)}d`;
 
-        // For older posts, show the actual date
         const options = { month: 'short', day: 'numeric' };
         if (date.getFullYear() !== now.getFullYear()) {
             options.year = 'numeric';
@@ -268,7 +248,6 @@ I'm passionate about web development, design, and creating meaningful digital ex
         const postElement = e.target.closest('.post');
         const postId = postElement.dataset.postId;
 
-        // Simple interaction feedback
         const btn = e.target.closest('.action-btn');
         btn.style.transform = 'scale(0.95)';
         setTimeout(() => {
@@ -279,7 +258,6 @@ I'm passionate about web development, design, and creating meaningful digital ex
     }
 
     expandPost(e) {
-        // Don't expand if clicking on action buttons
         if (e.target.closest('.action-btn')) return;
         
         const postElement = e.target.closest('.post');
@@ -289,15 +267,12 @@ I'm passionate about web development, design, and creating meaningful digital ex
         const fullContent = postElement.querySelector('.full-content');
         
         if (postContent && fullContent) {
-            // Hide preview content and show full content
             postContent.style.display = 'none';
             fullContent.style.display = 'block';
             
-            // Remove preview class and cursor
             postElement.classList.remove('post-preview');
             postElement.style.cursor = 'default';
             
-            // Add a "Show less" button only if it doesn't exist
             if (!fullContent.querySelector('.show-less')) {
                 const showLessBtn = document.createElement('div');
                 showLessBtn.className = 'show-less';
@@ -309,7 +284,6 @@ I'm passionate about web development, design, and creating meaningful digital ex
             }
             
 
-            // Re-initialize icons for the full content
             setTimeout(() => {
                 if (typeof feather !== 'undefined') {
                     feather.replace();
@@ -323,23 +297,18 @@ I'm passionate about web development, design, and creating meaningful digital ex
         const fullContent = postElement.querySelector('.full-content');
         
         if (postContent && fullContent) {
-            // Show preview content and hide full content
             postContent.style.display = 'block';
             fullContent.style.display = 'none';
             
-            // Restore preview class and cursor
             postElement.classList.add('post-preview');
             postElement.style.cursor = 'pointer';
         }
     }
 }
 
-// Initialize the app when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new BlogApp();
 });
 
-// Handle window resize for responsive adjustments
 window.addEventListener('resize', () => {
-    // Add any resize-specific logic here if needed
 });
