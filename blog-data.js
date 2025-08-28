@@ -1,4 +1,3 @@
-// Blog data configuration
 const blogData = {
     profile: {
         name: "Raman",
