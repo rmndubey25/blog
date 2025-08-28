@@ -118,7 +118,6 @@
             </ul>
         </div>
 
-        <!-- Profile Section -->
         <div class="section">
             <h2>👤 Profile Information</h2>
             
@@ -170,14 +169,12 @@
             <button class="button" onclick="updateProfile()" style="background-color: #ff9800;">Update Profile & Copy Code</button>
         </div>
         
-        <!-- Quick Copy Section -->
         <div class="section">
             <h2>📋 Quick Copy Code</h2>
             <p>Copy the complete blog-data.js code anytime (includes all your current posts and profile):</p>
             <button class="button" onclick="copyBlogDataToClipboard()" style="background-color: #2196f3; font-size: 16px; padding: 12px 24px;">Copy All Code to Clipboard</button>
         </div>
 
-        <!-- New Post Section -->
         <div class="section">
             <h2>✍️ Add New Blog Post</h2>
             
@@ -228,13 +225,11 @@
             <button class="button" onclick="clearPostForm()" style="background-color: #666;">Clear Form</button>
         </div>
 
-        <!-- Posts Management -->
         <div class="section">
             <h2>📋 Current Posts</h2>
             <div id="postsList"></div>
         </div>
 
-        <!-- Generate Code -->
         <div class="section">
             <h2>🔧 Generate Code</h2>
             <div class="warning">
@@ -274,17 +269,13 @@
 
     <script src="blog-data.js"></script>
     <script>
-        // Initialize with current data from blog-data.js
         let posts = [];
         let currentProfile = {};
 
-        // Load data from blog-data.js
         function loadCurrentData() {
             if (typeof blogData !== 'undefined') {
-                // Load posts
                 posts = [...blogData.posts];
                 
-                // Load profile data into form fields
                 currentProfile = blogData.profile;
                 document.getElementById('name').value = currentProfile.name || '';
                 document.getElementById('username').value = currentProfile.username || '';
@@ -340,10 +331,8 @@
                 stats: { likes: 0, reposts: 0, replies: 0 }
             };
 
-            // Add to the beginning of posts array
             posts.unshift(newPost);
             
-            // Also add to the global blogData if it exists
             if (typeof blogData !== 'undefined') {
                 blogData.posts.unshift(newPost);
             }
@@ -351,7 +340,6 @@
             displayPosts();
             clearPostForm();
             
-            // Auto-generate and show the updated code
             generateCode();
             
             alert('Post added successfully! The code has been generated below. Copy it to your blog-data.js file to see it on your main blog.');
@@ -378,7 +366,6 @@
                 return;
             }
 
-            // Get image URLs (support multiple images)
             const imageUrls = document.getElementById('postImages').value.trim()
                 .split('\n')
                 .map(url => url.trim())
@@ -392,12 +379,10 @@
                 stats: { likes: 0, reposts: 0, replies: 0 }
             };
 
-            // Add to posts array
             posts.unshift(newPost);
             displayPosts();
             clearPostForm();
             
-            // Auto-generate and copy to clipboard
             copyBlogDataToClipboard();
             
             alert('✅ Post added! The updated blog-data.js code has been copied to your clipboard.\n\nNow:\n1. Open your blog-data.js file\n2. Select all content (Ctrl+A) and paste (Ctrl+V)\n3. Save and upload to GitHub\n\nYour new post will appear immediately on your blog!');
@@ -465,7 +450,6 @@ if (typeof module !== 'undefined' && module.exports) {
                 await navigator.clipboard.writeText(code);
                 showCopySuccess();
             } catch (err) {
-                // Fallback for older browsers
                 const textArea = document.createElement('textarea');
                 textArea.value = code;
                 document.body.appendChild(textArea);
@@ -477,7 +461,6 @@ if (typeof module !== 'undefined' && module.exports) {
         }
 
         function showCopySuccess() {
-            // Create a temporary success message
             const successDiv = document.createElement('div');
             successDiv.innerHTML = '✅ Code copied to clipboard!';
             successDiv.style.cssText = `
@@ -494,7 +477,6 @@ if (typeof module !== 'undefined' && module.exports) {
             `;
             document.body.appendChild(successDiv);
             
-            // Remove after 3 seconds
             setTimeout(() => {
                 if (successDiv.parentNode) {
                     document.body.removeChild(successDiv);
@@ -502,7 +484,6 @@ if (typeof module !== 'undefined' && module.exports) {
             }, 3000);
         }
 
-        // Handle image file upload preview
         document.addEventListener('DOMContentLoaded', function() {
             const fileInput = document.getElementById('postImageFile');
             const imagePreview = document.getElementById('imagePreview');
@@ -609,17 +590,14 @@ if (typeof module !== 'undefined' && module.exports) {
             codeOutput.select();
             document.execCommand('copy');
             
-            // Show success message
             const successMsg = document.getElementById('copySuccess');
             successMsg.style.display = 'block';
             
-            // Hide success message after 5 seconds
             setTimeout(() => {
                 successMsg.style.display = 'none';
             }, 5000);
         }
 
-        // Initialize the page
         window.addEventListener('load', function() {
             loadCurrentData();
             displayPosts();
